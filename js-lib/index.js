@@ -61,8 +61,10 @@ class abText_Class
             }
         }
 
-        for (let argName in args)
-            translation.replace(new RegExp(`{${argName}}`, 'gm'), args[argName]);
+        for (let argName in args) {
+            translation = translation.replace(new RegExp(`{${argName}}`, 'gm'), 
+                    args[argName]);
+        }
 
         return translation;
     }
