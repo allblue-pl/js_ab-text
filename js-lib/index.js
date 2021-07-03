@@ -26,13 +26,25 @@ class abText_Class
         return this.get(this._langAlias, text, args);
     }
 
-    add(langAlias, texts)
+    add(langPrefix, texts)
     {
-        if (!(langAlias in this._texts))
-            this._texts[langAlias] = {};
+        js0.args(arguments, 'string', js0.RawObject);
 
-        for (let text in texts)
-            this._texts[langAlias][text] = texts[text];
+        let langPrefix_Arr = langPrefix.split('.');
+        let langAlias = langPrefix_Arr[0];
+        let textPrefix_Arr = langPrefix_Arr.slice(1);
+        let textPrefix = textPrefix_Arr.join('.');
+        if (textPrefix !== '') {
+            textPrefix += '.';
+        }
+
+        if (!(langAlias in this._texts)) {
+            this._texts[langAlias] = {};
+        }
+
+        for (let text in texts) {
+            this._texts[langAlias][textPrefix + text] = texts[text];
+        }
 
         return this;
     }
@@ -50,9 +62,11 @@ class abText_Class
         }
 
         if (translation === null) {
-            if (args === null)
+            if (args === null) {
                 return `#${text}#`;
-            else {
+            } else if (Object.keys(args).length === 0) {
+                return `#${text}#`;
+            } else {
                 let args_Arr = [];
                 for (let argName in args) {
                     args_Arr.push(`${argName} => ${args[argName]}`);
