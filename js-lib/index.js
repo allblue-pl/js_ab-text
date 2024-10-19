@@ -7,14 +7,12 @@ const
 class abText_Class
 {
 
-    constructor()
-    {
+    constructor() {
         this._texts = {};
         this._langAlias = null;
     }
 
-    $(text, args = null)
-    {
+    $(text, args = null) {
         js0.args(arguments, 'string', [ js0.Null, js0.RawObject, 
                 js0.Default ]);
 
@@ -26,8 +24,7 @@ class abText_Class
         return this.get(this._langAlias, text, args);
     }
 
-    add(langPrefix, texts)
-    {
+    add(langPrefix, texts) {
         js0.args(arguments, 'string', js0.RawObject);
 
         let langPrefix_Arr = langPrefix.split('.');
@@ -49,8 +46,7 @@ class abText_Class
         return this;
     }
 
-    get(langAlias, text, args = null)
-    {
+    get(langAlias, text, args = null) {
         js0.args(arguments, [ js0.Null, 'string' ], 'string', [ js0.Null, 
                 js0.RawObject, js0.Default ]);
 
@@ -83,8 +79,7 @@ class abText_Class
         return translation;
     }
 
-    setLang(langAlias)
-    {
+    setLang(langAlias) {
         this._langAlias = langAlias;
     }
 
