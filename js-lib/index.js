@@ -17,7 +17,7 @@ class abText_Class
                 js0.Default ]);
 
         if (this._langAlias === null) {
-            console.warn('Lang alias not set.');
+            console.warn('Lang alias not set.', new Error());
             return this.get(this._langAlias, text, args);
         }
 
