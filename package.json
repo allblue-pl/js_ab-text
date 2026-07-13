@@ -1,4 +1,8 @@
 {
   "name": "ab-text",
-  "version": "0.0.1"
+  "type": "module",
+  "version": "0.0.1",
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
 }
